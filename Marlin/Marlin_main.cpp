@@ -13676,9 +13676,11 @@ void prepare_move_to_destination() {
           sy = raw[Y_AXIS] - SCARA_OFFSET_Y;  // With scaling factor.
 
     if (L1 == L2)
-      C2 = HYPOT2(sx, sy) / L1_2_2 - 1;
+      C2 = HYPOT2(sx, sy) / L1_2_2;
+      //C2 = HYPOT2(sx, sy) / L1_2_2 - 1;
     else
-      C2 = (HYPOT2(sx, sy) - (L1_2 + L2_2)) / (2.0 * L1 * L2);
+      C2 = ((HYPOT2(sx, sy) - (L1_2 + L2_2)) / (2.0 * L1 * L2)*(45000))/(2*(L1)*(L2));
+        //C2 = (HYPOT2(sx, sy) - (L1_2 + L2_2)) / (2.0 * L1 * L2);
 
     S2 = SQRT(1 - sq(C2));
 

@@ -69,7 +69,7 @@
 
 // Specify the specific SCARA model
 #define MORGAN_SCARA
-//#define MAKERARM_SCARA
+//define MAKERARM_SCARA
 
 #if ENABLED(MORGAN_SCARA) || ENABLED(MAKERARM_SCARA)
   //#define DEBUG_SCARA_KINEMATICS
@@ -84,14 +84,14 @@
 
   // SCARA tower offset (position of Tower relative to bed zero position)
   // This needs to be reasonably accurate as it defines the printbed position in the SCARA space.
-  #define SCARA_OFFSET_X 100 //mm
-  #define SCARA_OFFSET_Y -56 //mm
+  #define SCARA_OFFSET_X 0 //mm
+  #define SCARA_OFFSET_Y -23 //mm
 
   // Radius around the center where the arm cannot reach
-  #define MIDDLE_DEAD_ZONE_R 0 //mm
+  #define MIDDLE_DEAD_ZONE_R 65 //mm
 
-  #define THETA_HOMING_OFFSET 0  //calculatated from Calibration Guide and command M360 / M114 see picture in http://reprap.harleystudio.co.za/?page_id=1073
-  #define PSI_HOMING_OFFSET   0  //calculatated from Calibration Guide and command M364 / M114 see picture in http://reprap.harleystudio.co.za/?page_id=1073
+  #define THETA_HOMING_OFFSET 2.82  //calculatated from Calibration Guide and command M360 / M114 see picture in http://reprap.harleystudio.co.za/?page_id=1073
+  #define PSI_HOMING_OFFSET .628  //calculatated from Calibration Guide and command M364 / M114 see picture in http://reprap.harleystudio.co.za/?page_id=1073
 
 #endif
 
@@ -541,7 +541,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 103.69, 106.65, 200/1.25, 1000 }  // default steps per unit for SCARA
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 200/1.25, 1000 }  // default steps per unit for SCARA
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -792,8 +792,8 @@
 // @section machine
 
 // The size of the print bed
-#define X_BED_SIZE 200
-#define Y_BED_SIZE 200
+#define X_BED_SIZE 132.5
+#define Y_BED_SIZE 132.5
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
@@ -1030,8 +1030,8 @@
 
 // Manually set the home position. Leave these undefined for automatic settings.
 // For DELTA this is the top-center of the Cartesian print volume.
-#define MANUAL_X_HOME_POS -22
-#define MANUAL_Y_HOME_POS -52
+#define MANUAL_X_HOME_POS 0
+#define MANUAL_Y_HOME_POS 0
 #define MANUAL_Z_HOME_POS 0.1
 
 // Use "Z Safe Homing" to avoid homing with a Z probe outside the bed area.
